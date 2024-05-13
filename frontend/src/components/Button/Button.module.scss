@@ -1,0 +1,37 @@
+.button {
+  gap: 8px;
+  width: 100%;
+  padding: 11px;
+  color: #fff;
+  overflow: hidden;
+  max-height: 48px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  border-radius: 8px;
+  white-space: nowrap;
+  transition: all 0.2s;
+  background-color: #0077c8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  &:disabled {
+    color: #576779;
+    cursor: not-allowed;
+    border: 1px solid #576779;
+    background-color: transparent;
+  }
+}
+
+.loading {
+  gap: 15px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  border: 1px solid #0aba6e;
+}

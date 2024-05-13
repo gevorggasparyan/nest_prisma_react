@@ -1,0 +1,31 @@
+.wrapper {
+  gap: 24px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+
+  &_title {
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 40px;
+    margin-bottom: 16px;
+    color: #0077c8;
+  }
+
+  &__form {
+    gap: 12px;
+    width: 100%;
+    display: flex;
+    max-width: 350px;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+    &_create {
+      background-color: transparent;
+      border: 1px solid #576779;
+    }
+  }
+}

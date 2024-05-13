@@ -1,0 +1,40 @@
+version: "3.8"
+
+services:
+  mysql:
+    image: mysql:8.0
+    env_file: .env
+    environment:
+      MYSQL_ROOT_USER: $MYSQL_USER
+      MYSQL_ROOT_PASSWORD: $MYSQL_USER_PASSWORD
+      MYSQL_DATABASE: todolist
+    networks:
+      - app-network
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+  backend:
+    build: ./backend
+    ports:
+      - "3002:3002"
+    networks:
+      - app-network
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_PORT: 3306
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    networks:
+      - app-network
+    depends_on:
+      - backend
+
+networks:
+  app-network:
+    driver: bridge
+volumes:
+  mysql-data:
+

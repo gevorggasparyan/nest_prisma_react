@@ -1,0 +1,108 @@
+{
+  "name": "intro-react-app",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": "20.12.2",
+    "npm": "10.7.0"
+  },
+  "dependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@hookform/resolvers": "^3.0.1",
+    "@reduxjs/toolkit": "^1.9.3",
+    "@testing-library/user-event": "^13.5.0",
+    "axios": "^0.27.2",
+    "classnames": "^2.3.2",
+    "dotenv-webpack": "^8.0.1",
+    "js-cookie": "^3.0.1",
+    "lodash": "^4.17.21",
+    "pre-commit": "^1.2.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-helmet": "^6.1.0",
+    "react-hook-form": "^7.43.9",
+    "react-redux": "^8.0.5",
+    "react-router-dom": "^6.10.0",
+    "react-scripts": "5.0.1",
+    "react-share": "^5.0.3",
+    "react-transition-group": "^4.4.5",
+    "redux-mock-store": "^1.5.4",
+    "web-vitals": "^2.1.4",
+    "webpack": "^5.77.0",
+    "yup": "^1.0.2"
+  },
+  "scripts": {
+    "start": "serve -s build",
+    "dev": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test --watchAll=false",
+    "eject": "react-scripts eject",
+    "typescript": "tsc",
+    "lint": "eslint --fix \"src/**/*.{js,jsx,ts,tsx}\"",
+    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\""
+  },
+  "browserslist": {
+    "production": [
+      "chrome >= 67",
+      "edge >= 79",
+      "firefox >= 68",
+      "opera >= 54",
+      "safari >= 14",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^14.0.0",
+    "@types/axios": "^0.14.0",
+    "@types/jest": "^27.5.2",
+    "@types/js-cookie": "^3.0.3",
+    "@types/lodash": "^4.14.192",
+    "@types/node": "^16.18.21",
+    "@types/react": "^18.0.29",
+    "@types/react-dom": "^18.0.11",
+    "@types/react-helmet": "^6.1.6",
+    "@types/react-toastify": "4.1.0",
+    "assert": "^2.0.0",
+    "babel-jest": "23.6.0",
+    "buffer": "^6.0.3",
+    "crypto-browserify": "^3.12.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-import-resolver-typescript": "^3.5.5",
+    "eslint-plugin-jest": "^27.2.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "https-browserify": "^1.0.0",
+    "jest": "^29.5.0",
+    "jest-environment-jsdom": "^29.5.0",
+    "os-browserify": "^0.3.0",
+    "prettier": "^2.8.7",
+    "process": "^0.11.10",
+    "react-app-rewired": "^2.2.1",
+    "sass": "^1.60.0",
+    "stream-browserify": "^3.0.0",
+    "stream-http": "^3.2.0",
+    "terser-webpack-plugin": "^5.3.9",
+    "typescript": "^5.1.6",
+    "url": "^0.11.1"
+  },
+  "pre-commit": [
+    "typescript",
+    "lint"
+  ],
+  "babel": {
+    "presets": [
+      "react-app"
+    ],
+    "plugins": [
+      "@babel/plugin-proposal-class-properties",
+      "@babel/plugin-proposal-private-methods",
+      "@babel/plugin-proposal-private-property-in-object"
+    ]
+  }
+}

@@ -1,0 +1,37 @@
+.header {
+  width: 100%;
+  display: flex;
+  max-width: 100%;
+  padding: 6px 12px;
+  border-radius: 8px;
+  align-items: center;
+  background-color: #03080d;
+  justify-content: space-between;
+
+  &__user {
+    gap: 12px;
+    display: flex;
+    align-items: flex-start;
+
+    &__info {
+      gap: 6px;
+      display: flex;
+      flex-direction: column;
+
+      &_name {
+        color: white;
+        user-select: none;
+        text-transform: capitalize;
+      }
+
+      &_email {
+        color: white;
+        user-select: none;
+      }
+    }
+  }
+
+  &__log_out {
+    max-width: 125px;
+  }
+}

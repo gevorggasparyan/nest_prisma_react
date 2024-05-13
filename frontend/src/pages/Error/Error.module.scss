@@ -1,0 +1,20 @@
+.wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+
+  &__title {
+    color: white;
+    font-size: 28px;
+    line-height: 40px;
+    font-weight: 700;
+    margin-bottom: 28px;
+  }
+
+  &__button {
+    max-width: 330px;
+  }
+}
