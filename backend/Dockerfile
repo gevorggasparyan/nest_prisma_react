@@ -8,6 +8,7 @@ RUN npm install
 COPY . .
 
 RUN npx prisma generate
+RUN #npx prisma db push
 
 FROM node:20-alpine
 

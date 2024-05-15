@@ -3,7 +3,7 @@ import { NotFoundException, UnauthorizedException } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
 import { JwtService } from '@nestjs/jwt';
 import { AuthService } from './auth.service';
-import * as bcrypt from 'bcrypt';
+import * as argon2 from 'argon2';
 
 describe('AuthService', () => {
   let authService: AuthService;
@@ -36,14 +36,15 @@ describe('AuthService', () => {
       const mockUser = {
         id: 1,
         username: 'testuser',
-        password: await bcrypt.hash('password', 10), // Hashed password
+        password: await argon2.hash('password'), // Hashed password
         email: 'testemail@example.com',
       };
       jest.spyOn(prismaService.user, 'findUnique').mockResolvedValue(mockUser);
 
-      const bcryptCompare = jest.fn().mockResolvedValue(true); // Correct password
-      jest.spyOn(bcrypt, 'compare').mockImplementation(bcryptCompare);
+      const argon2Compare = jest.fn().mockResolvedValue(true); // Correct password
+      // jest.spyOn(argon2, 'compare').mockImplementation(bcryptCompare);
 
+      jest.spyOn(argon2, 'verify').mockImplementation(argon2Compare)
       const result = await authService.login('testuser', 'password');
 
       expect(result.accessToken).toBeDefined();
@@ -61,13 +62,13 @@ describe('AuthService', () => {
       const mockUser = {
         id: 1,
         username: 'testuser',
-        password: await bcrypt.hash('secretPassword', 10),
+        password: await argon2.hash('secretPassword'),
         email: 'testemail@example.com',
       };
       jest.spyOn(prismaService.user, 'findUnique').mockResolvedValue(mockUser);
 
-      const bcryptCompare = jest.fn().mockResolvedValue(false);
-      jest.spyOn(bcrypt, 'compare').mockImplementation(bcryptCompare);
+      const argon2Compare = jest.fn().mockResolvedValue(false);
+      jest.spyOn(argon2, 'verify').mockImplementation(argon2Compare);
 
       await expect(authService.login('testuser', 'password')).rejects.toThrow(
         UnauthorizedException,

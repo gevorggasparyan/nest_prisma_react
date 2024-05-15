@@ -4,7 +4,7 @@ import { PrismaService } from '../prisma/prisma.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UserEntity } from './entities/user.entity';
 
-jest.mock('bcrypt', () => ({
+jest.mock('argon2', () => ({
   hash: jest.fn().mockResolvedValue('hashedPassword'),
 }));
 
