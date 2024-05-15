@@ -42,7 +42,6 @@ describe('AuthService', () => {
       jest.spyOn(prismaService.user, 'findUnique').mockResolvedValue(mockUser);
 
       const argon2Compare = jest.fn().mockResolvedValue(true); // Correct password
-      // jest.spyOn(argon2, 'compare').mockImplementation(bcryptCompare);
 
       jest.spyOn(argon2, 'verify').mockImplementation(argon2Compare)
       const result = await authService.login('testuser', 'password');
